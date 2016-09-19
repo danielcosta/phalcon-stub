@@ -1,0 +1,36 @@
+{
+  "name": "danielcosta/phalcon-stub",
+  "type": "library",
+  "description": "The most complete Phalcon PHP stubs which allows autocomplete in modern IDEs",
+  "keywords": ["Phalcon" ,"Stub", "IDE", "Zend Studio", "PhpStorm", "Netbeans", "Netbeans", "Eclipse", "autocomplete"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Phalcon Team",
+      "email": "team@phalconphp.com",
+      "homepage": "http://phalconphp.com/en/team"
+    },
+    {
+      "name": "Contributors",
+      "homepage": "https://github.com/phalcon/phalcon-devtools/graphs/contributors"
+    },
+    {
+      "name": "Daniel Costa",
+      "email": "danielcosta@gmail.com",
+      "homepage": "http://danielcosta.info"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/danielcosta/phalcon-stub/issues",
+    "source": "https://github.com/danielcosta/phalcon-stub"
+  },
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Phalcon\\": "Phalcon"
+    }
+  },
+  "minimum-stability": "dev"
+}
