@@ -1,13 +1,19 @@
-<?php 
+<?php
 
-namespace Phalcon\Session\Adapter {
+namespace Phalcon\Session\Adapter;
 
-	class Files extends \Phalcon\Session\Adapter implements \Phalcon\Session\AdapterInterface {
+/**
+ * Phalcon\Session\Adapter\Files
+ * This adapter store sessions in plain files
+ * <code>
+ * use Phalcon\Session\Adapter\Files;
+ * $session = new Files(['uniqueId' => 'my-private-app']);
+ * $session->start();
+ * $session->set('var', 'some-value');
+ * echo $session->get('var');
+ * </code>
+ */
+class Files extends \Phalcon\Session\Adapter
+{
 
-		const SESSION_ACTIVE = 2;
-
-		const SESSION_NONE = 1;
-
-		const SESSION_DISABLED = 0;
-	}
 }

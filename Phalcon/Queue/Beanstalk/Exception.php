@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Queue\Beanstalk {
+namespace Phalcon\Queue\Beanstalk;
 
-	class Exception extends \Phalcon\Exception implements \Throwable {
-	}
+/**
+ * Phalcon\Queue\Beanstalk\Exception
+ * Exceptions thrown in Phalcon\Queue\Beanstalk will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

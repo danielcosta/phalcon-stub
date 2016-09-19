@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Escaper {
+namespace Phalcon\Escaper;
 
-	class Exception extends \Phalcon\Exception implements \Throwable {
-	}
+/**
+ * Phalcon\Escaper\Exception
+ * Exceptions thrown in Phalcon\Escaper will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

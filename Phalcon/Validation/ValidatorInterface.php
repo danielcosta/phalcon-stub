@@ -1,16 +1,39 @@
-<?php 
+<?php
 
-namespace Phalcon\Validation {
+namespace Phalcon\Validation;
 
-	interface ValidatorInterface {
+/**
+ * Phalcon\Validation\ValidatorInterface
+ * Interface for Phalcon\Validation\Validator
+ */
+interface ValidatorInterface
+{
 
-		public function hasOption($key);
+    /**
+     * Checks if an option is defined
+     *
+     * @param string $key 
+     * @return bool 
+     */
+    public function hasOption($key);
 
+    /**
+     * Returns an option in the validator's options
+     * Returns null if the option hasn't set
+     *
+     * @param string $key 
+     * @param mixed $defaultValue 
+     * @return mixed 
+     */
+    public function getOption($key, $defaultValue = null);
 
-		public function getOption($key, $defaultValue=null);
+    /**
+     * Executes the validation
+     *
+     * @param mixed $validation 
+     * @param string $attribute 
+     * @return bool 
+     */
+    public function validate(\Phalcon\Validation $validation, $attribute);
 
-
-		public function validate(\Phalcon\Validation $validation, $attribute);
-
-	}
 }

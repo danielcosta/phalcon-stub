@@ -1,63 +1,72 @@
-<?php 
+<?php
 
-namespace Phalcon\Http\Response {
+namespace Phalcon\Http\Response;
 
-	/**
-	 * Phalcon\Http\Response\Headers
-	 *
-	 * This class is a bag to manage the response headers
-	 */
-	
-	class Headers implements \Phalcon\Http\Response\HeadersInterface {
+/**
+ * Phalcon\Http\Response\Headers
+ * This class is a bag to manage the response headers
+ */
+class Headers implements \Phalcon\Http\Response\HeadersInterface
+{
 
-		protected $_headers;
-
-		/**
-		 * Sets a header to be sent at the end of the request
-		 */
-		public function set($name, $value){ }
+    protected $_headers = array();
 
 
-		/**
-		 * Gets a header value from the internal bag
-		 */
-		public function get($name){ }
+    /**
+     * Sets a header to be sent at the end of the request
+     *
+     * @param string $name 
+     * @param string $value 
+     */
+    public function set($name, $value) {}
 
+    /**
+     * Gets a header value from the internal bag
+     *
+     * @param string $name 
+     * @return string|bool 
+     */
+    public function get($name) {}
 
-		/**
-		 * Sets a raw header to be sent at the end of the request
-		 */
-		public function setRaw($header){ }
+    /**
+     * Sets a raw header to be sent at the end of the request
+     *
+     * @param string $header 
+     */
+    public function setRaw($header) {}
 
+    /**
+     * Removes a header to be sent at the end of the request
+     *
+     * @param string $header 
+     */
+    public function remove($header) {}
 
-		/**
-		 * Removes a header to be sent at the end of the request
-		 */
-		public function remove($header){ }
+    /**
+     * Sends the headers to the client
+     *
+     * @return bool 
+     */
+    public function send() {}
 
+    /**
+     * Reset set headers
+     */
+    public function reset() {}
 
-		/**
-		 * Sends the headers to the client
-		 */
-		public function send(){ }
+    /**
+     * Returns the current headers as an array
+     *
+     * @return array 
+     */
+    public function toArray() {}
 
+    /**
+     * Restore a \Phalcon\Http\Response\Headers object
+     *
+     * @param array $data 
+     * @return Headers 
+     */
+    public static function __set_state(array $data) {}
 
-		/**
-		 * Reset set headers
-		 */
-		public function reset(){ }
-
-
-		/**
-		 * Returns the current headers as an array
-		 */
-		public function toArray(){ }
-
-
-		/**
-		 * Restore a \Phalcon\Http\Response\Headers object
-		 */
-		public static function __set_state($data){ }
-
-	}
 }

@@ -1,16 +1,33 @@
-<?php 
+<?php
 
-namespace Phalcon\Acl {
+namespace Phalcon\Acl;
 
-	interface RoleInterface {
+/**
+ * Phalcon\Acl\RoleInterface
+ * Interface for Phalcon\Acl\Role
+ */
+interface RoleInterface
+{
 
-		public function getName();
+    /**
+     * Returns the role name
+     *
+     * @return string 
+     */
+    public function getName();
 
+    /**
+     * Returns role description
+     *
+     * @return string 
+     */
+    public function getDescription();
 
-		public function getDescription();
+    /**
+     * Magic method __toString
+     *
+     * @return string 
+     */
+    public function __toString();
 
-
-		public function __toString();
-
-	}
 }

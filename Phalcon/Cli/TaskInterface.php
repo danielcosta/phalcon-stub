@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Cli {
+namespace Phalcon\Cli;
 
-	interface TaskInterface {
-	}
+/**
+ * Phalcon\Cli\TaskInterface
+ * Interface for task handlers
+ */
+interface TaskInterface
+{
+
 }

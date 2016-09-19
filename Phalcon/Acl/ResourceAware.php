@@ -1,10 +1,19 @@
-<?php 
+<?php
 
-namespace Phalcon\Acl {
+namespace Phalcon\Acl;
 
-	interface ResourceAware {
+/**
+ * Phalcon\Acl\ResourceAware
+ * Interface for classes which could be used in allow method as RESOURCE
+ */
+interface ResourceAware
+{
 
-		public function getResourceName();
+    /**
+     * Returns resource name
+     *
+     * @return string 
+     */
+    public function getResourceName();
 
-	}
 }

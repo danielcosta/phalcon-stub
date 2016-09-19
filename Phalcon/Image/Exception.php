@@ -1,7 +1,9 @@
-<?php 
+<?php
 
-namespace Phalcon\Image {
+namespace Phalcon\Image;
 
-	class Exception extends \Phalcon\Exception implements \Throwable {
-	}
+
+class Exception extends \Phalcon\Exception
+{
+
 }

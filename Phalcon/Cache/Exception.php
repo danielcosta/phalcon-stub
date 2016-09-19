@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Cache {
+namespace Phalcon\Cache;
 
-	class Exception extends \Phalcon\Exception implements \Throwable {
-	}
+/**
+ * Phalcon\Cache\Exception
+ * Exceptions thrown in Phalcon\Cache will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }
