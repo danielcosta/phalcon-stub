@@ -1,31 +1,72 @@
-<?php 
+<?php
 
-namespace Phalcon\Validation {
+namespace Phalcon\Validation;
 
-	interface MessageInterface {
+/**
+ * Phalcon\Validation\Message
+ * Interface for Phalcon\Validation\Message
+ */
+interface MessageInterface
+{
 
-		public function setType($type);
+    /**
+     * Sets message type
+     *
+     * @param string $type 
+     * @return \Phalcon\Validation\Message 
+     */
+    public function setType($type);
 
+    /**
+     * Returns message type
+     *
+     * @return string 
+     */
+    public function getType();
 
-		public function getType();
+    /**
+     * Sets verbose message
+     *
+     * @param string $message 
+     * @return \Phalcon\Validation\Message 
+     */
+    public function setMessage($message);
 
+    /**
+     * Returns verbose message
+     *
+     * @return string 
+     */
+    public function getMessage();
 
-		public function setMessage($message);
+    /**
+     * Sets field name related to message
+     *
+     * @param string $field 
+     * @return \Phalcon\Validation\Message 
+     */
+    public function setField($field);
 
+    /**
+     * Returns field name related to message
+     *
+     * @return string 
+     */
+    public function getField();
 
-		public function getMessage();
+    /**
+     * Magic __toString method returns verbose message
+     *
+     * @return string 
+     */
+    public function __toString();
 
+    /**
+     * Magic __set_state helps to recover messages from serialization
+     *
+     * @param array $message 
+     * @return MessageInterface 
+     */
+    public static function __set_state(array $message);
 
-		public function setField($field);
-
-
-		public function getField();
-
-
-		public function __toString();
-
-
-		public static function __set_state($message);
-
-	}
 }

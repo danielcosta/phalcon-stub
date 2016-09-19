@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Cli\Router {
+namespace Phalcon\Cli\Router;
 
-	class Exception extends \Phalcon\Exception implements \Throwable {
-	}
+/**
+ * Phalcon\Cli\Router\Exception
+ * Exceptions thrown in Phalcon\Cli\Router will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }

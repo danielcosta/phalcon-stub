@@ -1,10 +1,21 @@
-<?php 
+<?php
 
-namespace Phalcon\Translate {
+namespace Phalcon\Translate;
 
-	interface InterpolatorInterface {
+/**
+ * Phalcon\Translate\AdapterInterface
+ * Interface for Phalcon\Translate adapters
+ */
+interface InterpolatorInterface
+{
 
-		public function replacePlaceholders($translation, $placeholders=null);
+    /**
+     * Replaces placeholders by the values passed
+     *
+     * @param string $translation 
+     * @param mixed $placeholders 
+     * @return string 
+     */
+    public function replacePlaceholders($translation, $placeholders = null);
 
-	}
 }

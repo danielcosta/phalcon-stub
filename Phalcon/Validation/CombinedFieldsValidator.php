@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Validation {
+namespace Phalcon\Validation;
 
-	abstract class CombinedFieldsValidator extends \Phalcon\Validation\Validator implements \Phalcon\Validation\ValidatorInterface {
-	}
+/**
+ * Phalcon\Validation\CombinedFieldsValidator
+ * This is a base class for combined fields validators
+ */
+abstract class CombinedFieldsValidator extends \Phalcon\Validation\Validator
+{
+
 }

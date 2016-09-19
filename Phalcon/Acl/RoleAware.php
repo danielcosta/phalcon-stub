@@ -1,10 +1,19 @@
-<?php 
+<?php
 
-namespace Phalcon\Acl {
+namespace Phalcon\Acl;
 
-	interface RoleAware {
+/**
+ * Phalcon\Acl\RoleAware
+ * Interface for classes which could be used in allow method as ROLE
+ */
+interface RoleAware
+{
 
-		public function getRoleName();
+    /**
+     * Returns role name
+     *
+     * @return string 
+     */
+    public function getRoleName();
 
-	}
 }

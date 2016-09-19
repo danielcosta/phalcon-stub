@@ -1,7 +1,12 @@
-<?php 
+<?php
 
-namespace Phalcon\Session {
+namespace Phalcon\Session;
 
-	class Exception extends \Phalcon\Exception implements \Throwable {
-	}
+/**
+ * Phalcon\Session\Exception
+ * Exceptions thrown in Phalcon\Session will use this class
+ */
+class Exception extends \Phalcon\Exception
+{
+
 }
