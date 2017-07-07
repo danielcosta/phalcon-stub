@@ -1,46 +1,19 @@
-<?php
+<?php 
 
-namespace Phalcon\Mvc\Model;
+namespace Phalcon\Mvc\Model {
 
-/**
- * Phalcon\Mvc\Model\BinderInterface
- *
- * Interface for Phalcon\Mvc\Model\Binder
- */
-interface BinderInterface
-{
+	interface BinderInterface {
 
-    /**
-     * Gets active bound models
-     *
-     * @return array
-     */
-    public function getBoundModels();
+		public function getBoundModels();
 
-    /**
-     * Gets cache instance
-     *
-     * @return \Phalcon\Cache\BackendInterface
-     */
-    public function getCache();
 
-    /**
-     * Sets cache instance
-     *
-     * @param \Phalcon\Cache\BackendInterface $cache
-     * @return BinderInterface
-     */
-    public function setCache(\Phalcon\Cache\BackendInterface $cache);
+		public function getCache();
 
-    /**
-     * Bind models into params in proper handler
-     *
-     * @param object $handler
-     * @param array $params
-     * @param string $cacheKey
-     * @param string $methodName
-     * @return array
-     */
-    public function bindToHandler($handler, array $params, $cacheKey, $methodName = null);
 
+		public function setCache(\Phalcon\Cache\BackendInterface $cache);
+
+
+		public function bindToHandler($handler, $params, $cacheKey, $methodName=null);
+
+	}
 }

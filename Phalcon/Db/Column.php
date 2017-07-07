@@ -1,395 +1,231 @@
-<?php
+<?php 
 
-namespace Phalcon\Db;
+namespace Phalcon\Db {
 
-/**
- * Phalcon\Db\Column
- *
- * Allows to define columns to be used on create or alter table operations
- *
- * <code>
- * use Phalcon\Db\Column as Column;
- *
- * // Column definition
- * $column = new Column(
- *     "id",
- *     [
- *         "type"          => Column::TYPE_INTEGER,
- *         "size"          => 10,
- *         "unsigned"      => true,
- *         "notNull"       => true,
- *         "autoIncrement" => true,
- *         "first"         => true,
- *     ]
- * );
- *
- * // Add column to existing table
- * $connection->addColumn("robots", null, $column);
- * </code>
- */
-class Column implements \Phalcon\Db\ColumnInterface
-{
-    /**
-     * Integer abstract type
-     */
-    const TYPE_INTEGER = 0;
+	/**
+	 * Phalcon\Db\Column
+	 *
+	 * Allows to define columns to be used on create or alter table operations
+	 *
+	 *<code>
+	 * use Phalcon\Db\Column as Column;
+	 *
+	 * // Column definition
+	 * $column = new Column(
+	 *     "id",
+	 *     [
+	 *         "type"          => Column::TYPE_INTEGER,
+	 *         "size"          => 10,
+	 *         "unsigned"      => true,
+	 *         "notNull"       => true,
+	 *         "autoIncrement" => true,
+	 *         "first"         => true,
+	 *     ]
+	 * );
+	 *
+	 * // Add column to existing table
+	 * $connection->addColumn("robots", null, $column);
+	 *</code>
+	 */
+	
+	class Column implements \Phalcon\Db\ColumnInterface {
 
-    /**
-     * Date abstract type
-     */
-    const TYPE_DATE = 1;
+		const TYPE_INTEGER = 0;
 
-    /**
-     * Varchar abstract type
-     */
-    const TYPE_VARCHAR = 2;
+		const TYPE_DATE = 1;
 
-    /**
-     * Decimal abstract type
-     */
-    const TYPE_DECIMAL = 3;
+		const TYPE_VARCHAR = 2;
 
-    /**
-     * Datetime abstract type
-     */
-    const TYPE_DATETIME = 4;
+		const TYPE_DECIMAL = 3;
 
-    /**
-     * Char abstract type
-     */
-    const TYPE_CHAR = 5;
+		const TYPE_DATETIME = 4;
 
-    /**
-     * Text abstract data type
-     */
-    const TYPE_TEXT = 6;
+		const TYPE_CHAR = 5;
 
-    /**
-     * Float abstract data type
-     */
-    const TYPE_FLOAT = 7;
+		const TYPE_TEXT = 6;
 
-    /**
-     * Boolean abstract data type
-     */
-    const TYPE_BOOLEAN = 8;
+		const TYPE_FLOAT = 7;
 
-    /**
-     * Double abstract data type
-     */
-    const TYPE_DOUBLE = 9;
+		const TYPE_BOOLEAN = 8;
 
-    /**
-     * Tinyblob abstract data type
-     */
-    const TYPE_TINYBLOB = 10;
+		const TYPE_DOUBLE = 9;
 
-    /**
-     * Blob abstract data type
-     */
-    const TYPE_BLOB = 11;
+		const TYPE_TINYBLOB = 10;
 
-    /**
-     * Mediumblob abstract data type
-     */
-    const TYPE_MEDIUMBLOB = 12;
+		const TYPE_BLOB = 11;
 
-    /**
-     * Longblob abstract data type
-     */
-    const TYPE_LONGBLOB = 13;
+		const TYPE_MEDIUMBLOB = 12;
 
-    /**
-     * Big integer abstract type
-     */
-    const TYPE_BIGINTEGER = 14;
+		const TYPE_LONGBLOB = 13;
 
-    /**
-     * Json abstract type
-     */
-    const TYPE_JSON = 15;
+		const TYPE_BIGINTEGER = 14;
 
-    /**
-     * Jsonb abstract type
-     */
-    const TYPE_JSONB = 16;
+		const TYPE_JSON = 15;
 
-    /**
-     * Datetime abstract type
-     */
-    const TYPE_TIMESTAMP = 17;
+		const TYPE_JSONB = 16;
 
-    /**
-     * Bind Type Null
-     */
-    const BIND_PARAM_NULL = 0;
+		const TYPE_TIMESTAMP = 17;
 
-    /**
-     * Bind Type Integer
-     */
-    const BIND_PARAM_INT = 1;
+		const BIND_PARAM_NULL = 0;
 
-    /**
-     * Bind Type String
-     */
-    const BIND_PARAM_STR = 2;
+		const BIND_PARAM_INT = 1;
 
-    /**
-     * Bind Type Blob
-     */
-    const BIND_PARAM_BLOB = 3;
+		const BIND_PARAM_STR = 2;
 
-    /**
-     * Bind Type Bool
-     */
-    const BIND_PARAM_BOOL = 5;
+		const BIND_PARAM_BLOB = 3;
 
-    /**
-     * Bind Type Decimal
-     */
-    const BIND_PARAM_DECIMAL = 32;
+		const BIND_PARAM_BOOL = 5;
 
-    /**
-     * Skip binding by type
-     */
-    const BIND_SKIP = 1024;
+		const BIND_PARAM_DECIMAL = 32;
 
-    /**
-     * Column's name
-     *
-     * @var string
-     */
-    protected $_name;
+		const BIND_SKIP = 1024;
 
-    /**
-     * Schema which table related is
-     *
-     * @var string
-     */
-    protected $_schemaName;
+		protected $_name;
 
-    /**
-     * Column data type
-     *
-     * @var int|string
-     */
-    protected $_type;
+		protected $_schemaName;
 
-    /**
-     * Column data type reference
-     *
-     * @var int
-     */
-    protected $_typeReference = -1;
+		protected $_type;
 
-    /**
-     * Column data type values
-     *
-     * @var array|string
-     */
-    protected $_typeValues;
+		protected $_typeReference;
 
-    /**
-     * The column have some numeric type?
-     */
-    protected $_isNumeric = false;
+		protected $_typeValues;
 
-    /**
-     * Integer column size
-     *
-     * @var int
-     */
-    protected $_size = 0;
+		protected $_isNumeric;
 
-    /**
-     * Integer column number scale
-     *
-     * @var int
-     */
-    protected $_scale = 0;
+		protected $_size;
 
-    /**
-     * Default column value
-     */
-    protected $_default = null;
+		protected $_scale;
 
-    /**
-     * Integer column unsigned?
-     *
-     * @var boolean
-     */
-    protected $_unsigned = false;
+		protected $_default;
 
-    /**
-     * Column not nullable?
-     *
-     * @var boolean
-     */
-    protected $_notNull = false;
+		protected $_unsigned;
 
-    /**
-     * Column is part of the primary key?
-     */
-    protected $_primary = false;
+		protected $_notNull;
 
-    /**
-     * Column is autoIncrement?
-     *
-     * @var boolean
-     */
-    protected $_autoIncrement = false;
+		protected $_primary;
 
-    /**
-     * Position is first
-     *
-     * @var boolean
-     */
-    protected $_first = false;
+		protected $_autoIncrement;
 
-    /**
-     * Column Position
-     *
-     * @var string
-     */
-    protected $_after;
+		protected $_first;
 
-    /**
-     * Bind Type
-     */
-    protected $_bindType = 2;
+		protected $_after;
+
+		protected $_bindType;
+
+		/**
+		 * Column's name
+		 */
+		public function getName(){ }
 
 
-    /**
-     * Column's name
-     *
-     * @return string
-     */
-    public function getName() {}
+		/**
+		 * Schema which table related is
+		 */
+		public function getSchemaName(){ }
 
-    /**
-     * Schema which table related is
-     *
-     * @return string
-     */
-    public function getSchemaName() {}
 
-    /**
-     * Column data type
-     *
-     * @return int|string
-     */
-    public function getType() {}
+		/**
+		 * Column data type
+		 */
+		public function getType(){ }
 
-    /**
-     * Column data type reference
-     *
-     * @return int
-     */
-    public function getTypeReference() {}
 
-    /**
-     * Column data type values
-     *
-     * @return array|string
-     */
-    public function getTypeValues() {}
+		/**
+		 * Column data type reference
+		 */
+		public function getTypeReference(){ }
 
-    /**
-     * Integer column size
-     *
-     * @return int
-     */
-    public function getSize() {}
 
-    /**
-     * Integer column number scale
-     *
-     * @return int
-     */
-    public function getScale() {}
+		/**
+		 * Column data type values
+		 */
+		public function getTypeValues(){ }
 
-    /**
-     * Default column value
-     */
-    public function getDefault() {}
 
-    /**
-     * Phalcon\Db\Column constructor
-     *
-     * @param string $name
-     * @param array $definition
-     */
-    public function __construct($name, array $definition) {}
+		/**
+		 * Integer column size
+		 */
+		public function getSize(){ }
 
-    /**
-     * Returns true if number column is unsigned
-     *
-     * @return bool
-     */
-    public function isUnsigned() {}
 
-    /**
-     * Not null
-     *
-     * @return bool
-     */
-    public function isNotNull() {}
+		/**
+		 * Integer column number scale
+		 */
+		public function getScale(){ }
 
-    /**
-     * Column is part of the primary key?
-     *
-     * @return bool
-     */
-    public function isPrimary() {}
 
-    /**
-     * Auto-Increment
-     *
-     * @return bool
-     */
-    public function isAutoIncrement() {}
+		/**
+		 * Default column value
+		 */
+		public function getDefault(){ }
 
-    /**
-     * Check whether column have an numeric type
-     *
-     * @return bool
-     */
-    public function isNumeric() {}
 
-    /**
-     * Check whether column have first position in table
-     *
-     * @return bool
-     */
-    public function isFirst() {}
+		/**
+		 * \Phalcon\Db\Column constructor
+		 */
+		public function __construct($name, $definition){ }
 
-    /**
-     * Check whether field absolute to position in table
-     *
-     * @return string
-     */
-    public function getAfterPosition() {}
 
-    /**
-     * Returns the type of bind handling
-     *
-     * @return int
-     */
-    public function getBindType() {}
+		/**
+		 * Returns true if number column is unsigned
+		 */
+		public function isUnsigned(){ }
 
-    /**
-     * Restores the internal state of a Phalcon\Db\Column object
-     *
-     * @param array $data
-     * @return Column
-     */
-    public static function __set_state(array $data) {}
 
-    /**
-     * Check whether column has default value
-     *
-     * @return bool
-     */
-    public function hasDefault() {}
+		/**
+		 * Not null
+		 */
+		public function isNotNull(){ }
 
+
+		/**
+		 * Column is part of the primary key?
+		 */
+		public function isPrimary(){ }
+
+
+		/**
+		 * Auto-Increment
+		 */
+		public function isAutoIncrement(){ }
+
+
+		/**
+		 * Check whether column have an numeric type
+		 */
+		public function isNumeric(){ }
+
+
+		/**
+		 * Check whether column have first position in table
+		 */
+		public function isFirst(){ }
+
+
+		/**
+		 * Check whether field absolute to position in table
+		 *
+		 * @return string
+		 */
+		public function getAfterPosition(){ }
+
+
+		/**
+		 * Returns the type of bind handling
+		 */
+		public function getBindType(){ }
+
+
+		/**
+		 * Restores the internal state of a \Phalcon\Db\Column object
+		 */
+		public static function __set_state($data){ }
+
+
+		/**
+		 * Check whether column has default value
+		 */
+		public function hasDefault(){ }
+
+	}
 }

@@ -1,64 +1,28 @@
-<?php
+<?php 
 
-namespace Phalcon\Events;
+namespace Phalcon\Events {
 
-/**
- * Phalcon\Events\EventInterface
- *
- * Interface for Phalcon\Events\Event class
- */
-interface EventInterface
-{
+	interface EventInterface {
 
-    /**
-     * Gets event data
-     *
-     * @return mixed
-     */
-    public function getData();
+		public function getData();
 
-    /**
-     * Sets event data
-     *
-     * @param mixed $data
-     * @return EventInterface
-     */
-    public function setData($data = null);
 
-    /**
-     * Gets event type
-     *
-     * @return mixed
-     */
-    public function getType();
+		public function setData($data=null);
 
-    /**
-     * Sets event type
-     *
-     * @param string $type
-     * @return EventInterface
-     */
-    public function setType($type);
 
-    /**
-     * Stops the event preventing propagation
-     *
-     * @return EventInterface
-     */
-    public function stop();
+		public function getType();
 
-    /**
-     * Check whether the event is currently stopped
-     *
-     * @return bool
-     */
-    public function isStopped();
 
-    /**
-     * Check whether the event is cancelable
-     *
-     * @return bool
-     */
-    public function isCancelable();
+		public function setType($type);
 
+
+		public function stop();
+
+
+		public function isStopped();
+
+
+		public function isCancelable();
+
+	}
 }

@@ -1,29 +1,25 @@
-<?php
+<?php 
 
-namespace Phalcon\Flash;
+namespace Phalcon\Flash {
 
-/**
- * Phalcon\Flash\Direct
- *
- * This is a variant of the Phalcon\Flash that immediately outputs any message passed to it
- */
-class Direct extends \Phalcon\Flash
-{
+	/**
+	 * Phalcon\Flash\Direct
+	 *
+	 * This is a variant of the Phalcon\Flash that immediately outputs any message passed to it
+	 */
+	
+	class Direct extends \Phalcon\Flash implements \Phalcon\Di\InjectionAwareInterface, \Phalcon\FlashInterface {
 
-    /**
-     * Outputs a message
-     *
-     * @param string $type
-     * @param mixed $message
-     * @return string
-     */
-    public function message($type, $message) {}
+		/**
+		 * Outputs a message
+		 */
+		public function message($type, $message){ }
 
-    /**
-     * Prints the messages accumulated in the flasher
-     *
-     * @param bool $remove
-     */
-    public function output($remove = true) {}
 
+		/**
+		 * Prints the messages accumulated in the flasher
+		 */
+		public function output($remove=null){ }
+
+	}
 }

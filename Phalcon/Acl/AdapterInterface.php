@@ -1,171 +1,64 @@
-<?php
+<?php 
 
-namespace Phalcon\Acl;
+namespace Phalcon\Acl {
 
-/**
- * Phalcon\Acl\AdapterInterface
- *
- * Interface for Phalcon\Acl adapters
- */
-interface AdapterInterface
-{
+	interface AdapterInterface {
 
-    /**
-     * Sets the default access level (Phalcon\Acl::ALLOW or Phalcon\Acl::DENY)
-     *
-     * @param int $defaultAccess
-     */
-    public function setDefaultAction($defaultAccess);
+		public function setDefaultAction($defaultAccess);
 
-    /**
-     * Returns the default ACL access level
-     *
-     * @return int
-     */
-    public function getDefaultAction();
 
-    /**
-     * Sets the default access level (Phalcon\Acl::ALLOW or Phalcon\Acl::DENY)
-     * for no arguments provided in isAllowed action if there exists func for accessKey
-     *
-     * @param int $defaultAccess
-     */
-    public function setNoArgumentsDefaultAction($defaultAccess);
+		public function getDefaultAction();
 
-    /**
-     * Returns the default ACL access level for no arguments provided in
-     * isAllowed action if there exists func for accessKey
-     *
-     * @return int
-     */
-    public function getNoArgumentsDefaultAction();
 
-    /**
-     * Adds a role to the ACL list. Second parameter lets to inherit access data from other existing role
-     *
-     * @param mixed $role
-     * @param mixed $accessInherits
-     * @return bool
-     */
-    public function addRole($role, $accessInherits = null);
+		public function setNoArgumentsDefaultAction($defaultAccess);
 
-    /**
-     * Do a role inherit from another existing role
-     *
-     * @param string $roleName
-     * @param mixed $roleToInherit
-     * @return bool
-     */
-    public function addInherit($roleName, $roleToInherit);
 
-    /**
-     * Check whether role exist in the roles list
-     *
-     * @param string $roleName
-     * @return bool
-     */
-    public function isRole($roleName);
+		public function getNoArgumentsDefaultAction();
 
-    /**
-     * Check whether resource exist in the resources list
-     *
-     * @param string $resourceName
-     * @return bool
-     */
-    public function isResource($resourceName);
 
-    /**
-     * Adds a resource to the ACL list
-     *
-     * Access names can be a particular action, by example
-     * search, update, delete, etc or a list of them
-     *
-     * @param mixed $resourceObject
-     * @param mixed $accessList
-     * @return bool
-     */
-    public function addResource($resourceObject, $accessList);
+		public function addRole($role, $accessInherits=null);
 
-    /**
-     * Adds access to resources
-     *
-     * @param string $resourceName
-     * @param mixed $accessList
-     */
-    public function addResourceAccess($resourceName, $accessList);
 
-    /**
-     * Removes an access from a resource
-     *
-     * @param string $resourceName
-     * @param mixed $accessList
-     */
-    public function dropResourceAccess($resourceName, $accessList);
+		public function addInherit($roleName, $roleToInherit);
 
-    /**
-     * Allow access to a role on a resource
-     *
-     * @param string $roleName
-     * @param string $resourceName
-     * @param mixed $access
-     * @param mixed $func
-     */
-    public function allow($roleName, $resourceName, $access, $func = null);
 
-    /**
-     * Deny access to a role on a resource
-     *
-     * @param string $roleName
-     * @param string $resourceName
-     * @param mixed $access
-     * @param mixed $func
-     */
-    public function deny($roleName, $resourceName, $access, $func = null);
+		public function isRole($roleName);
 
-    /**
-     * Check whether a role is allowed to access an action from a resource
-     *
-     * @param mixed $roleName
-     * @param mixed $resourceName
-     * @param mixed $access
-     * @param array $parameters
-     * @return bool
-     */
-    public function isAllowed($roleName, $resourceName, $access, array $parameters = null);
 
-    /**
-     * Returns the role which the list is checking if it's allowed to certain resource/access
-     *
-     * @return string
-     */
-    public function getActiveRole();
+		public function isResource($resourceName);
 
-    /**
-     * Returns the resource which the list is checking if some role can access it
-     *
-     * @return string
-     */
-    public function getActiveResource();
 
-    /**
-     * Returns the access which the list is checking if some role can access it
-     *
-     * @return string
-     */
-    public function getActiveAccess();
+		public function addResource($resourceObject, $accessList);
 
-    /**
-     * Return an array with every role registered in the list
-     *
-     * @return RoleInterface[]
-     */
-    public function getRoles();
 
-    /**
-     * Return an array with every resource registered in the list
-     *
-     * @return ResourceInterface[]
-     */
-    public function getResources();
+		public function addResourceAccess($resourceName, $accessList);
 
+
+		public function dropResourceAccess($resourceName, $accessList);
+
+
+		public function allow($roleName, $resourceName, $access, $func=null);
+
+
+		public function deny($roleName, $resourceName, $access, $func=null);
+
+
+		public function isAllowed($roleName, $resourceName, $access, $parameters=null);
+
+
+		public function getActiveRole();
+
+
+		public function getActiveResource();
+
+
+		public function getActiveAccess();
+
+
+		public function getRoles();
+
+
+		public function getResources();
+
+	}
 }

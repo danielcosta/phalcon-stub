@@ -1,110 +1,89 @@
-<?php
+<?php 
 
-namespace Phalcon\Validation;
+namespace Phalcon\Validation {
 
-/**
- * Phalcon\Validation\Message
- *
- * Encapsulates validation info generated in the validation process
- */
-class Message implements \Phalcon\Validation\MessageInterface
-{
+	/**
+	 * Phalcon\Validation\Message
+	 *
+	 * Encapsulates validation info generated in the validation process
+	 */
+	
+	class Message implements \Phalcon\Validation\MessageInterface {
 
-    protected $_type;
+		protected $_type;
+
+		protected $_message;
+
+		protected $_field;
+
+		protected $_code;
+
+		/**
+		 * \Phalcon\Validation\Message constructor
+		 */
+		public function __construct($message, $field=null, $type=null, $code=null){ }
 
 
-    protected $_message;
+		/**
+		 * Sets message type
+		 */
+		public function setType($type){ }
 
 
-    protected $_field;
+		/**
+		 * Returns message type
+		 */
+		public function getType(){ }
 
 
-    protected $_code;
+		/**
+		 * Sets verbose message
+		 */
+		public function setMessage($message){ }
 
 
-    /**
-     * Phalcon\Validation\Message constructor
-     *
-     * @param string $message
-     * @param mixed $field
-     * @param string $type
-     * @param int $code
-     */
-    public function __construct($message, $field = null, $type = null, $code = null) {}
+		/**
+		 * Returns verbose message
+		 */
+		public function getMessage(){ }
 
-    /**
-     * Sets message type
-     *
-     * @param string $type
-     * @return Message
-     */
-    public function setType($type) {}
 
-    /**
-     * Returns message type
-     *
-     * @return string
-     */
-    public function getType() {}
+		/**
+		 * Sets field name related to message
+		 */
+		public function setField($field){ }
 
-    /**
-     * Sets verbose message
-     *
-     * @param string $message
-     * @return Message
-     */
-    public function setMessage($message) {}
 
-    /**
-     * Returns verbose message
-     *
-     * @return string
-     */
-    public function getMessage() {}
+		/**
+		 * Returns field name related to message
+		 *
+		 * @return mixed
+		 */
+		public function getField(){ }
 
-    /**
-     * Sets field name related to message
-     *
-     * @param mixed $field
-     * @return Message
-     */
-    public function setField($field) {}
 
-    /**
-     * Returns field name related to message
-     *
-     * @return mixed
-     */
-    public function getField() {}
+		/**
+		 * Sets code for the message
+		 */
+		public function setCode($code){ }
 
-    /**
-     * Sets code for the message
-     *
-     * @param int $code
-     * @return Message
-     */
-    public function setCode($code) {}
 
-    /**
-     * Returns the message code
-     *
-     * @return int
-     */
-    public function getCode() {}
+		/**
+		 * Returns the message code
+		 */
+		public function getCode(){ }
 
-    /**
-     * Magic __toString method returns verbose message
-     *
-     * @return string
-     */
-    public function __toString() {}
 
-    /**
-     * Magic __set_state helps to recover messages from serialization
-     *
-     * @param array $message
-     * @return Message
-     */
-    public static function __set_state(array $message) {}
+		/**
+		 * Magic __toString method returns verbose message
+		 */
+		public function __toString(){ }
 
+
+		/**
+		 * Magic __set_state helps to recover messages from serialization
+		 */
+		public static function __set_state($message){ }
+
+	}
 }
