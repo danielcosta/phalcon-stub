@@ -643,25 +643,25 @@ namespace Phalcon\Mvc\Model\Query {
 		/**
 		 * Appends a BETWEEN condition
 		 */
-		private function _conditionBetween($clause, $operator, $expr, $minimum, $maximum){ }
+		protected function _conditionBetween($clause, $operator, $expr, $minimum, $maximum){ }
 
 
 		/**
 		 * Appends a NOT BETWEEN condition
 		 */
-		private function _conditionNotBetween($clause, $operator, $expr, $minimum, $maximum){ }
+		protected function _conditionNotBetween($clause, $operator, $expr, $minimum, $maximum){ }
 
 
 		/**
 		 * Appends an IN condition
 		 */
-		private function _conditionIn($clause, $operator, $expr, $values){ }
+		protected function _conditionIn($clause, $operator, $expr, $values){ }
 
 
 		/**
 		 * Appends a NOT IN condition
 		 */
-		private function _conditionNotIn($clause, $operator, $expr, $values){ }
+		protected function _conditionNotIn($clause, $operator, $expr, $values){ }
 
 	}
 }

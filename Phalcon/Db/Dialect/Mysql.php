@@ -173,5 +173,11 @@ namespace Phalcon\Db\Dialect {
 		 */
 		protected function _getTableOptions($definition){ }
 
+
+		/**
+		 * Generates SQL to check DB parameter FOREIGN_KEY_CHECKS.
+		 */
+		public function getForeignKeyChecks(){ }
+
 	}
 }

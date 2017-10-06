@@ -150,6 +150,9 @@ namespace Phalcon\Assets {
 		public function collection($name){ }
 
 
+		public function collectionResourcesByType($resources, $type){ }
+
+
 		/**
 		 * Traverses a collection calling the callback to generate its HTML
 		 *
