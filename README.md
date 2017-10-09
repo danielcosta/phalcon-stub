@@ -1,7 +1,7 @@
 # Phalcon PHP Stubs
 
 [![Software License](https://img.shields.io/packagist/l/danielcosta/phalcon-stub.svg?style=flat-square)](LICENSE)
-[![Total Downloads](https://img.shields.io/packagist/dt/danielcosta/phalcon-stub.svg?style=flat-square)](https://packagist.org/packages/sergeyklay/aerospike-php-stubs)
+[![Total Downloads](https://img.shields.io/packagist/dt/danielcosta/phalcon-stub.svg?style=flat-square)](https://packagist.org/packages/danielcosta/phalcon-stub)
 
 When working with Phalcon PHP framework classes may crop up some difficulties when to use syntax highlighting or code autocompletion.
 This repo provide the most complete Phalcon PHP stubs which allows autocomplete in modern IDEs.
